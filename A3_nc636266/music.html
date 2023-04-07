@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="Nicon.jpg">
+    <title>Nicholas Steven</title>
+    <button id="toggleDarkMode">Toggle Dark Mode</button>
+    <button id="toggleColor">Toggle Purple Mode</button>
+    <button onclick="showNotification()">Show Notification</button>
+    <button onclick="conditionalFeature()">Morning/Afternoon Checker</button>
+    <p id="checker"></p>
+    <button id="eventButton">PRESS THIS BUTTON!</button>
+    <p id="eventText"></p>
+
+</head>
+<body>
+<link href="main.css" rel="stylesheet">
+<!-- Title -->
+<h1><em>Nicholas Steven</em></h1>
+<!-- Navigation -->
+<nav id="NavigationInformation">
+    <ul class="nobullet" id="Navigation1">
+        <li>
+            <p><a href="index.html">Homepage</a></p>
+        </li>
+        <li>
+            <p><a href="music.html">Music</a></p>
+        </li>
+        <li>
+            <p><a href="cs.html">CS</a></p>
+        </li>
+        <li>
+            <p><a href="contactform.html">Contact Form</a></p>
+        </li>
+        <li>
+            <p><a href="credits.html">Credits</a></p>
+        </li>
+    </ul>
+</nav>
+
+<section id="MyPiano">
+    <h2><i>My Piano</i></h2>
+    <article id="pianotype">
+        <p>My piano that I use when playing in the video is grand piano.</p>
+        <p>Below are pictures of some different types of piano</p>
+
+        <section class="pianocontainer">
+            <!-- Image retrieved from https://cdn.korg.com/caen/products/upload/778786bc42fe9c8f4f4c4b24eb9bd503_pc.png
+            -->
+            <img src="epiano.png" alt="Electric Piano" width="500" height="430" id="epiano">
+            <!-- Image retrieved from https://e22nydkgvrx.exactdn.com/wp-content/uploads/2018/04/185-Grand-Piano-top-
+            cropped.jpg?strip=all&lossy=1&w=612&ssl=1-->
+            <img src="grandpiano.webp" alt="Grand Piano" width="500" height="430" id="gpiano">
+        </section>
+
+    </article>
+</section>
+
+<section class="pianocovercontainer">
+    <section id="piano">
+        <h2><i>Piano Cover</i></h2>
+        <article id="work">
+            <p>I am very passionate in music and also want to pursue a career in music</p>
+            <p>Below is the video of me covering "Someone You Loved" by Lewis Capaldi on the piano.</p>
+        </article>
+
+        <video controls width="500">
+            <source src="piano.mp4" id="nicpianocover">
+        </video>
+    </section>
+
+    <section id="song">
+        <h2><i>Original Song</i></h2>
+        <article id="official">
+            <p>Below is the original audio of the song I played on the piano.</p>
+        </article>
+
+        <!-- Audio retrieved from https://youtu.be/bCuhuePlP8o-->
+        <audio controls>
+            <source src="someoneyouloved.mp3" id="pianoaudio">
+        </audio>
+    </section>
+</section>
+
+<!-- Contact Info -->
+<footer id="ContactInfo">
+    <h4>Contact Information</h4>
+    <ul id="MyContact" >
+        <li>
+            <a href="https://www.instagram.com/nicholas.s.r/">Instagram: nicholas.s.r</a>
+        </li>
+        <li>
+            <p id="phonenum">Phone Number: 0877262012</p>
+        </li>
+    </ul>
+</footer>
+
+<script>
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    const toggleColor = document.getElementById('toggleColor');
+    toggleColor.addEventListener('click', () => {
+        document.body.classList.toggle('purple-mode');
+    });
+
+    function showNotification() {
+        if (Notification.permission === 'granted') {
+            new Notification('This is your notification!');
+        } 
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('This is your notification!');
+                }
+            });
+        }
+    }
+
+    function conditionalFeature() {
+        const textElement = document.getElementById('checker');
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours();
+    
+        if (currentHour >= 12) {
+            textElement.innerHTML = 'It is afternoon right now.';
+        } 
+        else {
+            textElement.innerHTML = 'It is morning right now.';
+        }
+    }
+
+    const button = document.getElementById('eventButton');
+    const textElement = document.getElementById('eventText');
+    
+    button.addEventListener('click', function() {
+        textElement.innerHTML = 'Have a great day!';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

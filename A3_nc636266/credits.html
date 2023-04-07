@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="Nicon.jpg">
+    <title>Nicholas Steven</title>
+    <button id="toggleDarkMode">Toggle Dark Mode</button>
+    <button id="toggleColor">Toggle Purple Mode</button>
+    <button onclick="showNotification()">Show Notification</button>
+    <button onclick="conditionalFeature()">Morning/Afternoon Checker</button>
+    <p id="checker"></p>
+    <button id="eventButton">PRESS THIS BUTTON!</button>
+    <p id="eventText"></p>
+
+</head>
+<body>
+<link href="main.css" rel="stylesheet">
+<!-- Title -->
+<h1><em>Nicholas Steven</em></h1>
+<!-- Navigation -->
+<nav id="NavigationInformation">
+    <ul class="nobullet" id="Navigation1">
+        <li>
+            <p><a href="index.html">Homepage</a></p>
+        </li>
+        <li>
+            <p><a href="music.html">Music</a></p>
+        </li>
+        <li>
+            <p><a href="cs.html">CS</a></p>
+        </li>
+        <li>
+            <p><a href="contactform.html">Contact Form</a></p>
+        </li>
+        <li>
+            <p><a href="credits.html">Credits</a></p>
+        </li>
+    </ul>
+</nav>
+
+<p>Author’s Name: Nicholas Steven</p>
+<p>B00 Number: B00939249</p>
+<p>Course: CSCI 1170</p>
+<p>Year the Website was Made: 2023</p>
+<p>Reference List for all the content of the website (pictures, etc.)</p>
+<ul id="referencelinks">
+    <li>
+        <p>https://catalogue.novascotia.com/ManagedMedia/24678.jpg</p>
+    </li>
+    <li>
+        <p>https://youtu.be/bCuhuePlP8o</p>
+    </li>
+    <li>
+        <p>https://www.youtube.com/embed/SzJ46YA_RaA</p>
+    </li>
+    <li>
+        <p>https://e22nydkgvrx.exactdn.com/wp-content/uploads/2018/04/185-Grand-Piano-top-cropped.jpg?strip=all&lossy=1&w=612&ssl=1</p>
+    </li>
+    <li>
+        <p>https://cdn.korg.com/caen/products/upload/778786bc42fe9c8f4f4c4b24eb9bd503_pc.png</p>
+    </li>
+</ul>
+
+<!-- Contact Info -->
+<footer id="ContactInfo">
+    <h4>Contact Information</h4>
+    <ul id="MyContact" >
+        <li>
+            <a href="https://www.instagram.com/nicholas.s.r/">Instagram: nicholas.s.r</a>
+        </li>
+        <li>
+            <p id="phonenum">Phone Number: 0877262012</p>
+        </li>
+    </ul>
+</footer>
+
+<script>
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    const toggleColor = document.getElementById('toggleColor');
+    toggleColor.addEventListener('click', () => {
+        document.body.classList.toggle('purple-mode');
+    });
+
+    function showNotification() {
+        if (Notification.permission === 'granted') {
+            new Notification('This is your notification!');
+        } 
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('This is your notification!');
+                }
+            });
+        }
+    }
+
+    function conditionalFeature() {
+        const textElement = document.getElementById('checker');
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours();
+    
+        if (currentHour >= 12) {
+            textElement.innerHTML = 'It is afternoon right now.';
+        } 
+        else {
+            textElement.innerHTML = 'It is morning right now.';
+        }
+    }
+
+    const button = document.getElementById('eventButton');
+    const textElement = document.getElementById('eventText');
+    
+    button.addEventListener('click', function() {
+        textElement.innerHTML = 'Have a great day!';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>

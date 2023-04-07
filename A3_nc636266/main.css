@@ -1,0 +1,443 @@
+/* Desktop layout*/
+/* Apply All */
+:root {
+    background-color: black;
+    color: white;
+}
+
+* .dark-mode {
+    background-color: white;
+    color: black;
+}
+
+* .purple-mode {
+    background-color: purple;
+    color: lightgoldenrodyellow;
+}
+
+* html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: underline;
+    color: green;
+    font-weight: bold;
+}
+
+* p {
+    font-family: "arial", sans-serif;
+}
+
+p::first-letter {color: red}
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+    font-size: 30px;
+    margin: 5px 55px;
+}
+
+table {
+    text-align: left;
+    margin: 5px 55px;
+    background-color: red;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px;
+}
+
+p, iframe, video, audio {
+    text-align: left;
+    margin: 5px 55px;
+}
+
+ol {
+    text-align: left;
+    margin: 5px 55px;
+    background-color: darkgray;
+    color: white;
+}
+
+ol > ul {
+    text-align: left;
+    margin: 0px 0px;
+    background-color: darkgray;
+}
+
+h2 ~ p {
+    text-align: left;
+    margin: 5px 55px;
+    color: yellow;
+}
+
+/* Navigation */
+#Navigation1 {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: solid grey 5px;
+    background-color: white;
+    color: black;
+    margin: 0px 0px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.nobullet {
+    list-style: none;
+}
+
+/* index.html */
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    border: white 5px;
+    background-color: grey;
+}
+
+#aboutweb {
+    text-align: left;
+    margin: 5px 55px;
+    color: grey;
+}
+
+.photoGallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    border: white 5px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#photo1 {
+    margin-left: 55px;
+}
+
+#photo2 {
+    margin-left: 25px;
+}
+
+#photo3 {
+    margin-left: 25px;
+}
+
+/* hero image */
+.hero {
+  background-image: url('HeroImage.png'); /* Set the path to your hero image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Set the height of the hero image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* cs.html flexbox */
+.inContainer {
+    display: flex;
+    gap: 5px;
+    text-align: center;
+}
+
+.container {
+    flex-grow: 2.5;
+    gap: 5px;
+    text-align: center;
+}
+
+#CSWork {
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+    text-align: center;
+}
+
+#sidebar {
+    background-color: darkblue;
+    border-radius: 5px;
+    padding: 50px;
+    margin: 5px;
+    font-size: 22px;
+}
+
+#question {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 5px;
+}
+
+#input {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 5px;
+}
+
+#processing {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 5px;
+}
+
+#output {
+    background-color: blue;
+    border-radius: 5px;
+    padding: 7px;
+    margin: 5px;
+}
+
+#sample {
+    background-color: dodgerblue;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sampletable {
+    text-align: center;
+}
+
+/* form */
+input[type="submit"] {
+    background-color: yellow !important;
+    text-align: left;
+    margin: 5px 55px;
+}
+
+textarea {
+    background-color: yellow !important;
+    text-align: left;
+}
+
+form + p {
+    color: yellow !important;
+    text-align: left;
+    margin: 5px 55px;
+}
+
+input[type="text"] {
+    background-color: yellow !important;
+}
+
+input[type="email"] {
+    background-color: yellow !important;
+}
+
+/* music.html */
+.pianocontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#song {
+    margin-left: 150px;
+}
+
+.pianocovercontainer {
+    display: flex;
+    gap: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* credits.html */
+#referencelinks {
+    margin: 0px 55px;
+}
+
+/* footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border: solid grey 5px;
+    background-color: white;
+    color: black;
+    text-align: left;
+    margin-top: 20px;
+}
+
+#phonenum {
+    margin: 5px 0px;
+}
+
+/* Image */
+#NicPhoto {
+    border: solid white 5px;
+    margin-left: 55px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+#DalPhoto {
+    border: solid white 5px;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+#epiano {
+    border: solid white 5px;
+    padding: 5px;
+    margin-right: 130px;
+    margin-top: 20px;
+}
+
+#gpiano {
+    border: solid white 5px;
+    padding: 5px;
+    margin-left: 130px;
+    margin-top: 20px;
+}
+
+/* YouTube video */
+#csytvid {
+    border: solid white 5px;
+    margin: 20px;
+    padding: 5px;
+}
+
+.videocontainer {
+    text-align: center;
+    display: block;
+}
+
+/* Tablet layout*/
+@media screen and (max-width: 1200px) {
+        /* Image */
+        #NicPhoto {
+            margin-left: 30px;
+        }
+    
+        #epiano {
+            margin-right: 0px;
+        }
+        
+        #gpiano {
+            margin-left: 0px;
+        }
+    
+        #photo1 {
+            margin-left: 30px;
+        }
+    
+        #photo2 {
+            margin-left: 30px;
+        }
+
+        #photo3 {
+            margin-left: 30px;
+        }
+
+        #song {
+            margin-left: 0px;
+        }
+}
+
+/* Mobile layout */
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    #Navigation1 {
+        flex-direction: column !important; 
+    }
+
+    /* index.html */
+    .gridcontainer {
+        grid-template-columns: 1fr; /* Set to 1 column */
+        grid-template-rows: auto; /* Reset to auto rows */
+    }
+
+    .photoGallery {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto; 
+    }
+
+    /* cs.html flexbox */
+    .inContainer {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-grow: 1;
+    }
+
+    #CorrectAnswer {
+        max-width: 100%;
+    }
+
+    /* music.html */
+    .pianocontainer {
+        flex-direction: column;
+    }
+
+    #song {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .pianocovercontainer {
+        flex-direction: column;
+    }
+
+    /* Image */
+    #NicPhoto {
+        margin-left: 30px;
+    }
+
+    #epiano {
+        margin-right: 0px;
+    }
+    
+    #gpiano {
+        margin-left: 0px;
+    }
+
+    #photo1 {
+        margin-left: 30px;
+    }
+
+    #photo2 {
+        margin-left: 30px;
+    }
+
+    #photo3 {
+        margin-left: 30px;
+    }
+
+    #DalPhoto {
+        max-width: 445px;
+        max-height: 280px;
+    }
+    
+}

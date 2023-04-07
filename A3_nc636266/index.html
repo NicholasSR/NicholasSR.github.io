@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="Nicon.jpg">
+    <title>Nicholas Steven</title>
+    <button id="toggleDarkMode">Toggle Dark Mode</button>
+    <button id="toggleColor">Toggle Purple Mode</button>
+    <button onclick="showNotification()">Show Notification</button>
+    <button onclick="conditionalFeature()">Morning/Afternoon Checker</button>
+    <p id="checker"></p>
+    <button id="eventButton">PRESS THIS BUTTON!</button>
+    <p id="eventText"></p>
+    
+</head>
+<body>
+<link href="main.css" rel="stylesheet">
+<!-- Title -->
+<h1><em>Nicholas Steven</em></h1>
+<!-- Navigation -->
+<nav id="NavigationInformation">
+    <ul class="nobullet" id="Navigation1">
+        <li>
+            <p><a href="index.html">Homepage</a></p>
+        </li>
+        <li>
+            <p><a href="music.html">Music</a></p>
+        </li>
+        <li>
+            <p><a href="cs.html">CS</a></p>
+        </li>
+        <li>
+            <p><a href="contactform.html">Contact Form</a></p>
+        </li>
+        <li>
+            <p><a href="credits.html">Credits</a></p>
+        </li>
+    </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Welcome to My Website</h1>
+  </div>
+</section>
+
+<!-- Content Including Picture -->
+<section id="WebsiteInfo">
+    <h2><em>About</em> this website:</h2>
+    <p id="aboutweb">This website is all about Nicholas Steven</p>
+</section>
+
+<section>
+    <h2><i>Photo Gallery:</i></h2>
+</section>
+
+<section class="photoGallery">
+    <section class="photo-item" id="photo1">
+            <img src="nightPic.png" alt="First Photo" width="400" height="430" id="NightPhoto">
+    </section>
+
+    <section class="photo-item" id="photo2">
+        <img src="BilliardPic.jpg" alt="Second Photo" width="400" height="450" id="Pool">
+    </section>
+
+    <section class="photo-item" id="photo3">
+        <img src="NiagaraPic.jpg" alt="Third Photo" width="400" height="450" id="Niagara">
+    </section>
+
+</section>
+
+
+<section class="gridcontainer">
+    <section class="grid-item" id="AboutMe">
+        <h2><i>About Me:</i></h2>
+        <article id="introduction">
+            <p>My name is Nicholas Steven, I am currently an undergraduate student taking computer science major.</p>
+            <img src="NicholasSteven.jpg" alt="Nicholas Steven" width="400" height="580" id="NicPhoto">
+        </article>
+    </section>
+
+    <section class="grid-item" id="Hobbies">
+        <h2><i>My Hobbies:</i></h2>
+        <article id="MyHobby">
+            <p>Below are some of my hobbies.</p>
+            <ol>
+                <li>Sports</li>
+                <ul>
+                    <li>Gym</li>
+                    <li>Basketball</li>
+                    <li>Swimming</li>
+                </ul>
+                <li>Playing Music Instruments</li>
+                <li>Playing Video Games</li>
+                <li>Photography</li>
+            </ol>
+        </article>
+    </section>
+
+    <section class="grid-item" id="Education">
+        <h2><i>My Education:</i></h2>
+
+        <table>
+            <caption> Education </caption>
+            <tr>
+                <th>Grade</th>
+                <th>Institution</th>
+                <th>Location</th>
+            </tr>
+            <tr>
+                <td>Elementary</td>
+                <td>SpringField</td>
+                <td>Indonesia</td>
+            </tr>
+            <tr>
+                <td>Junior High</td>
+                <td>BPK</td>
+                <td>Indonesia</td>
+            </tr>
+            <tr>
+                <td>High School</td>
+                <td>SVP</td>
+                <td>Indonesia</td>
+            </tr>
+            <tr>
+                <td>University</td>
+                <td>Dalhousie</td>
+                <td>Canada</td>
+            </tr>
+        </table>
+
+        <article id="EduInfo">
+            <p>Above is a table of all the detailed institution I attend each grade.</p>
+            <p>Below is a picture of the university I currently am attending.</p>
+        </article>
+
+        <!--Dal Uni image retrieved from https://catalogue.novascotia.com/ManagedMedia/24678.jpg-->
+        <img src="https://catalogue.novascotia.com/ManagedMedia/24678.jpg" alt="Dalhousie" width="500" height="300"
+             id="DalPhoto">
+    </section>
+
+</section>
+
+<!-- Contact Info -->
+<footer id="ContactInfo">
+    <h4>Contact Information</h4>
+    <ul id="MyContact" >
+        <li>
+            <a href="https://www.instagram.com/nicholas.s.r/">Instagram: nicholas.s.r</a>
+        </li>
+        <li>
+            <p id="phonenum">Phone Number: 0877262012</p>
+        </li>
+    </ul>
+</footer>
+
+<script>
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    const toggleColor = document.getElementById('toggleColor');
+    toggleColor.addEventListener('click', () => {
+        document.body.classList.toggle('purple-mode');
+    });
+
+    function showNotification() {
+        if (Notification.permission === 'granted') {
+            new Notification('This is your notification!');
+        } 
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('This is your notification!');
+                }
+            });
+        }
+    }
+
+    function conditionalFeature() {
+        const textElement = document.getElementById('checker');
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours();
+    
+        if (currentHour >= 12) {
+            textElement.innerHTML = 'It is afternoon right now.';
+        } 
+        else {
+            textElement.innerHTML = 'It is morning right now.';
+        }
+    }
+
+    const button = document.getElementById('eventButton');
+    const textElement = document.getElementById('eventText');
+    
+    button.addEventListener('click', function() {
+        textElement.innerHTML = 'Have a great day!';
+    });    
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

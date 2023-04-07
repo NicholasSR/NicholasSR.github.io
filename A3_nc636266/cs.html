@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/jpeg" href="Nicon.jpg">
+    <title>Nicholas Steven</title>
+    <button id="toggleDarkMode">Toggle Dark Mode</button>
+    <button id="toggleColor">Toggle Purple Mode</button>
+    <button onclick="showNotification()">Show Notification</button>
+    <button onclick="conditionalFeature()">Morning/Afternoon Checker</button>
+    <p id="checker"></p>
+    <button id="eventButton">PRESS THIS BUTTON!</button>
+    <p id="eventText"></p>
+
+</head>
+<body>
+<link href="main.css" rel="stylesheet">
+<!-- Title -->
+<h1><em>Nicholas Steven</em></h1>
+<!-- Navigation -->
+<nav id="NavigationInformation">
+    <ul class="nobullet" id="Navigation1">
+        <li>
+            <p><a href="index.html">Homepage</a></p>
+        </li>
+        <li>
+            <p><a href="music.html">Music</a></p>
+        </li>
+        <li>
+            <p><a href="cs.html">CS</a></p>
+        </li>
+        <li>
+            <p><a href="contactform.html">Contact Form</a></p>
+        </li>
+        <li>
+            <p><a href="credits.html">Credits</a></p>
+        </li>
+    </ul>
+</nav>
+
+<p>Below is an example of one of my works in Computer Science.</p>
+
+<section id="CS">
+  <h2><i>Computer Science</i></h2>
+  <article id="CS1">
+    <p>I am pursuing a career in computer science, one of the main wayy for me to achieve this goal is taking a computer
+        science major in Dalhousie University.</p>
+    <p>The video below about "What is Computer Science" really facinate me and made me devide to pick a career in the
+        tech field.</p>
+  </article>
+</section>
+
+<!-- Video retrieved from https://www.youtube.com/embed/SzJ46YA_RaA-->
+<section class="videocontainer">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/SzJ46YA_RaA" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;
+        web-share" allowfullscreen id="csytvid"></iframe>
+</section>
+
+<section id="CSWork">
+    <h2><i>One of My CS Works</i></h2>
+</section>
+
+<section class="inContainer">
+    <section id="sidebar">
+        <h3>My Code</h3>
+        <img src="MyAnswer.png" alt="My Code" width="500" height="400" id="CorrectAnswer">
+    </section>
+
+    <section class="container">
+        <section id="question">
+            <h3>Question</h3>
+            <p>Grading on the curve is a method of grading that is based on the belief that letter
+                grades for any given class should be distributed along a bell cue. Typically, after a
+                test is marked, the average score becomes an "average" grade, possibly a C- or B+.
+                Scores falling above and below this average are graded accordingly.
+                While this method of grading has both proponents and opponents, we are going tp
+                (pretend to) apply this form of marking to a set of assignments. You will receive a
+                set of integer scores for a particular assignment. As grades are determined by
+                where they lie on the bell curve, we are interested in finding the minimum grade
+                needed to be in the top X % of marks. For example, if we grade on the bell curve,
+                the top 20% of these marks will receive the grade 'A. You are to determine the
+                minimum grade required for a student to be in the top X % on the assignment.</p>
+        </section>
+
+        <section id="input">
+            <h3>Input</h3>
+            <p>The program reads the following:
+                an integer X representing the precentile mark that we are interested in for this data set.
+                an integer N representing the number of student marks in the data set (to follow)
+                a data set consisting of N integer scores obtained by students on an assignment</p>
+        </section>
+
+        <section id="processing">
+            <h3>Processing</h3>
+            <p>You are to write a method
+                called calculateMinimumMark that takes in an array and (integer X) percentile. The
+                method should determine the minimum mark required (based on the array data
+                provided) to be in the top X percent of that data set.</p>
+        </section>
+
+        <section id="output">
+            <h3>Output</h3>
+            <p>The calculateMinimumMark method should return the minimum mark that was
+                calculated. This will be output in the main method.</p>
+        </section>
+    </section>
+</section>
+
+<section id="sample">
+    <h3>Sample Input and Sample Output</h3>
+    <table id="sampletable">
+        <tr>
+            <th>Sample Input</th>
+            <th>Sample Output</th>
+        </tr>
+        <tr>
+            <td>20 10 31 32 33 34 35 36 37 38 39 40</td>
+            <td>39</td>
+        </tr>
+    </table>
+
+    <p>In the example above, <b>X</b> is <b>20</b>, and <b>N</b> is <b>10</b>.</p>
+</section>
+
+<!-- Contact Info -->
+<footer id="ContactInfo">
+    <h4>Contact Information</h4>
+    <ul id="MyContact" >
+        <li>
+            <a href="https://www.instagram.com/nicholas.s.r/">Instagram: nicholas.s.r</a>
+        </li>
+        <li>
+            <p id="phonenum">Phone Number: 0877262012</p>
+        </li>
+    </ul>
+</footer>
+
+<script>
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    const toggleColor = document.getElementById('toggleColor');
+    toggleColor.addEventListener('click', () => {
+        document.body.classList.toggle('purple-mode');
+    });
+
+    function showNotification() {
+        if (Notification.permission === 'granted') {
+            new Notification('This is your notification!');
+        } 
+        else if (Notification.permission !== 'denied') {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    new Notification('This is your notification!');
+                }
+            });
+        }
+    }
+
+    function conditionalFeature() {
+        const textElement = document.getElementById('checker');
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours();
+    
+        if (currentHour >= 12) {
+            textElement.innerHTML = 'It is afternoon right now.';
+        } 
+        else {
+            textElement.innerHTML = 'It is morning right now.';
+        }
+    }
+
+    const button = document.getElementById('eventButton');
+    const textElement = document.getElementById('eventText');
+    
+    button.addEventListener('click', function() {
+        textElement.innerHTML = 'Have a great day!';
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+</script>
+
+</body>
+</html>
